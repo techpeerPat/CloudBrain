@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import HomeAwsTraining from "../sections/HomeAwsTraining.astro";
+import HomeGoogleTraining from "../sections/HomeGoogleTraining.astro";
 import HomeHero from "../sections/HomeHero.astro";
 import { getHome } from "../utils/sanity";
 
@@ -9,4 +11,6 @@ console.log(content);
 
 <Layout title="Home">
   <HomeHero content={content.homeHero} />
+  <HomeGoogleTraining content={content.googleSection} />
+  <HomeAwsTraining content={content.awsSection} />
 </Layout>

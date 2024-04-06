@@ -24,6 +24,10 @@ export default {
       colors: {
         black: "#010101",
         "light-gray": "#B4B8BD",
+        offwhite: "#F9FAFB",
+      },
+      listStyleImage: {
+        check: 'url("/checkIcon.svg")',
       },
     },
   },

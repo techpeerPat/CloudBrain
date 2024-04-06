@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+import Container from "../components/Container.astro";
+import { urlFor } from "../utils/image";
+
+const { content } = Astro.props;
+---
+
+<section class="pb-24 pt-14">
+  <Container classes="flex flex-col lg:flex-row justify-between gap-6">
+    <Image
+      src={urlFor(content.image).url()}
+      inferSize
+      alt="google section "
+      class="xl:max-w-[720px] rounded-2xl object-cover lg:w-1/2 xl:w-full"
+    />
+    <div class="w-full bg-offwhite px-8 py-12 rounded-2xl">
+      <h2 class="mb-8">{content.title}</h2>
+      <ul
+        class="flex text-body-base list-image-check list-inside flex-col gap-5 mb-8"
+      >
+        {
+          content.list.map((item) => (
+            <li class="flex items-center gap-3">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 28 28"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_58_313)">
+                  <path
+                    d="M8.74992 14L12.2499 17.5L19.2499 10.5M25.6666 14C25.6666 20.4434 20.4432 25.6667 13.9999 25.6667C7.5566 25.6667 2.33325 20.4434 2.33325 14C2.33325 7.55672 7.5566 2.33337 13.9999 2.33337C20.4432 2.33337 25.6666 7.55672 25.6666 14Z"
+                    stroke="#00C29C"
+                    stroke-width="2.33333"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_58_313">
+                    <path
+                      d="M0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14Z"
+                      fill="white"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>{" "}
+              {item}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </Container>
+</section>

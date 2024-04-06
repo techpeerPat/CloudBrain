@@ -2,7 +2,7 @@
 import Container from "./Container.astro";
 ---
 
-<header class="py-5">
+<header class="pt-5">
   <Container classes="flex gap-2 justify-between items-center"
     ><a href="/"
       ><svg
@@ -115,6 +115,7 @@ import Container from "./Container.astro";
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
+        <title>CloudBrain Training Logo</title>
         <path
           d="M3.5 7H24.5M3.5 14H24.5M3.5 21H24.5"
           stroke="black"
@@ -139,10 +140,8 @@ import Container from "./Container.astro";
       </svg>
     </button>
   </Container>
-  <nav
-    class="navbar mt-6 bg-black text-white font-body text-body-lg leading-none gap-6"
-  >
-    <ul class="flex flex-col divide-y py-2 px-2">
+  <nav class="navbar pt-5 text-white font-body text-body-lg leading-none gap-6">
+    <ul class="flex bg-black flex-col divide-y py-2 px-2">
       <li class="py-4"><a href="/">Home</a></li>
       <li class="py-4">
         <a href="/google-cloud-training">Google Cloud Training</a>
@@ -162,7 +161,7 @@ import Container from "./Container.astro";
   }
 
   .navbar.visible {
-    max-height: 500px;
+    max-height: 1000px;
     transition: max-height 0.35s ease-in-out;
   }
 
