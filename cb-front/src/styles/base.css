@@ -17,5 +17,18 @@
       @apply font-display ;
     }
   
+    h1{
+      @apply text-display-2xl lg:text-display-3xl 
+    }
+    h2{
+      @apply text-display-xl lg:text-display-2xl max-w-3xl 
+    }
+    h3{
+      @apply text-display-xl max-w-3xl
+    }
+    p{
+      @apply text-body-lg;
+    }
+  
    
   }

@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+import Container from "../components/Container.astro";
+import { urlFor } from "../utils/image";
+
+const { content } = Astro.props;
+---
+
+<section class="relative bg-black text-white">
+  <Image
+    src={urlFor(content.bgImage).url()}
+    class="absolute top-0 left-0 object-cover origin-right w-full h-full"
+    inferSize
+    alt="home hero bg Image"
+  />
+  <Container
+    classes="relative flex flex-col min-h-[480px] h-full justify-center z-10"
+  >
+    <h1 class="mb-6">{content.title}</h1>
+    {content.subtitle && <p class="text-body-lg">{content.subtitle}</p>}
+  </Container>
+</section>

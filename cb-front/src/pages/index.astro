@@ -1,7 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import HomeHero from "../sections/HomeHero.astro";
+import { getHome } from "../utils/sanity";
+
+const content = await getHome();
+console.log(content);
 ---
 
 <Layout title="Home">
-  <h1>Home</h1>
+  <HomeHero content={content.homeHero} />
 </Layout>

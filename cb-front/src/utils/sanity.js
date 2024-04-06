@@ -1,10 +1,8 @@
 import { sanityClient } from "sanity:client";
 import groq from "groq";
 
-export async function getFeaturedWork() {
-  return await sanityClient.fetch(
-    groq`*[_type == "caseStudy" && featured == true && defined(slug.current)] | order(_createdAt desc) [0...4]`
-  );
+export async function getHome() {
+  return await sanityClient.fetch(groq`*[_type == "home" ][0]`);
 }
 
 export async function getCaseStudies() {
