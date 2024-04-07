@@ -1,7 +1,26 @@
 ---
+import Container from "../components/Container.astro";
 import Layout from "../layouts/Layout.astro";
+import CTA from "../sections/CTA.astro";
+import { getContact } from "../utils/sanity";
+
+const content = await getContact();
+console.log(content);
 ---
 
 <Layout title="Contact">
-  <h1>Contact</h1>
+  <section class="py-16 pb-24">
+    <Container classes="flex ">
+      <div class="w-1/2">
+        <h1 class="text-display-2xl">{content.title}</h1>
+        <p>{content.subtitle}</p>
+        {
+          content.socialLinks.map((link) => {
+            return <div>{link.label}</div>;
+          })
+        }
+      </div>
+    </Container>
+  </section>
+  <CTA content={content.cta} />
 </Layout>

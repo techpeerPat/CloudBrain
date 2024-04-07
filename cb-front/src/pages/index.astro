@@ -1,16 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import CTA from "../sections/CTA.astro";
 import HomeAwsTraining from "../sections/HomeAwsTraining.astro";
 import HomeGoogleTraining from "../sections/HomeGoogleTraining.astro";
 import HomeHero from "../sections/HomeHero.astro";
 import { getHome } from "../utils/sanity";
 
 const content = await getHome();
-console.log(content);
 ---
 
 <Layout title="Home">
   <HomeHero content={content.homeHero} />
   <HomeGoogleTraining content={content.googleSection} />
   <HomeAwsTraining content={content.awsSection} />
+  <CTA content={content.cta} />
 </Layout>

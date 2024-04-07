@@ -23,17 +23,22 @@ export default defineType({
           scheme: ['https', 'http', 'mailto', 'tel'],
         }),
     },
+
     {
       title: 'Button Version',
       name: 'version',
-      type: 'array',
-      of: [{type: 'string'}],
+      type: 'string',
+
       options: {
         list: [
           {title: 'Primary', value: 'primary', initialValue: true},
           {title: 'Secondary', value: 'secondary'},
         ],
+        layout: 'radio',
       },
     },
   ],
+  initialValue: {
+    version: 'primary',
+  },
 })

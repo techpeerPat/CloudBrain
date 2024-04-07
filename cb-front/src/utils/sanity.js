@@ -5,6 +5,10 @@ export async function getHome() {
   return await sanityClient.fetch(groq`*[_type == "home" ][0]`);
 }
 
+export async function getContact() {
+  return await sanityClient.fetch(groq`*[_type == "contact" ][0]`);
+}
+
 export async function getCaseStudies() {
   return await sanityClient.fetch(
     groq`*[_type == "caseStudy" && defined(slug.current)] | order(_createdAt desc)`
