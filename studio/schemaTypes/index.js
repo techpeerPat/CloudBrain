@@ -6,12 +6,16 @@ import home from './home'
 import contact from './contact'
 import socialLink from './socialLink'
 import becomeTrainer from './becomeTrainer'
+import googleCloudTraining from './googleCloudTraining'
+import awsTraining from './awsTraining'
 
 export const schemaTypes = [
   home,
   button,
   contact,
   becomeTrainer,
+  googleCloudTraining,
+  awsTraining,
   cta,
   socialLink,
   category,

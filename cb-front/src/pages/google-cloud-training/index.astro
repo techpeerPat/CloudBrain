@@ -1,0 +1,11 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getGoogleTrainings } from "../../utils/sanity";
+
+const pageContent = await getGoogleTrainings();
+console.log(pageContent);
+---
+
+<Layout title="Google Cloud Training">
+  <h1>Google Cloud Training</h1>
+</Layout>

@@ -13,15 +13,30 @@ export async function getBecomeTrainer() {
   return await sanityClient.fetch(groq`*[_type == "becomeTrainer" ][0]`);
 }
 
-export async function getCaseStudies() {
+export async function getGoogleTrainings() {
   return await sanityClient.fetch(
-    groq`*[_type == "caseStudy" && defined(slug.current)] | order(_createdAt desc)`
+    groq`*[_type == "googleCloudTraining" && defined(slug.current)] | order(_createdAt desc)`
   );
 }
 
-export async function getCaseStudy(slug) {
+export async function getGoogleTraining(slug) {
   return await sanityClient.fetch(
-    groq`*[_type == "caseStudy" && slug.current == $slug ][0]`,
+    groq`*[_type == "googleCloudTraining" && slug.current == $slug ][0]`,
+    {
+      slug,
+    }
+  );
+}
+
+export async function getAwsTrainings() {
+  return await sanityClient.fetch(
+    groq`*[_type == "awsTraining" && defined(slug.current)] | order(_createdAt desc)`
+  );
+}
+
+export async function getAwsTraining(slug) {
+  return await sanityClient.fetch(
+    groq`*[_type == "awsTraining" && slug.current == $slug ][0]`,
     {
       slug,
     }
