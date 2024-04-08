@@ -26,6 +26,7 @@ export default {
       },
       colors: {
         black: "#010101",
+        grey: "#777",
         purple: "#CF4BEF",
         "light-gray": "#B4B8BD",
         "dark-blue": "#008EEF",
