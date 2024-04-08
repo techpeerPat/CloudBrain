@@ -9,16 +9,53 @@ console.log(content);
 ---
 
 <Layout title="Contact">
-  <section class="py-16 pb-24">
-    <Container classes="flex ">
-      <div class="w-1/2">
-        <h1 class="text-display-2xl">{content.title}</h1>
-        <p>{content.subtitle}</p>
-        {
-          content.socialLinks.map((link) => {
-            return <div>{link.label}</div>;
-          })
-        }
+  <section class="py-16 bg-offwhite">
+    <Container classes="flex flex-col lg:flex-row gap-14 ">
+      <div class="w-full lg:w-1/2">
+        <h1 class="text-display-2xl mb-5">{content.title}</h1>
+        <p class="text-body-lg font-semibold text-grey mb-5">
+          {content.subtitle}
+        </p>
+        <div class="flex flex-col gap-5">
+          {
+            content.socialLinks.map((link) => {
+              return (
+                <div class=" flex flex-row items-start gap-4">
+                  <div class=" w-8 h-8">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="32"
+                      height="32"
+                      viewBox="0 0 32 32"
+                      fill="none"
+                    >
+                      <path
+                        d="M15.9998 29.6606C23.4598 29.6606 29.6604 23.4731 29.6604 16C29.6604 8.53999 23.4461 2.33942 15.9861 2.33942C8.51356 2.33942 2.33984 8.53999 2.33984 16C2.33984 23.4731 8.5267 29.6606 15.9998 29.6606ZM16.0004 27.384C9.67813 27.384 4.62842 22.3211 4.62842 16C4.62842 9.69142 9.66442 4.61599 15.9861 4.61599C22.2941 4.61599 27.3696 9.69199 27.3833 16C27.3964 22.3217 22.3073 27.384 15.9993 27.384M12.785 19.1611C15.905 22.2948 19.8833 24.2766 22.2404 21.9326C22.3238 21.8502 22.3999 21.7607 22.4678 21.6651C23.0838 20.9823 23.2581 20.0714 22.4678 19.4823C21.8518 19.04 21.1958 18.5851 20.0838 17.808C19.3073 17.2594 18.7981 17.3926 18.1958 17.9954L17.6598 18.5177C17.4993 18.6651 17.245 18.652 17.0707 18.5446C16.6021 18.2634 15.8118 17.6337 15.0616 16.884C14.325 16.1468 13.6558 15.3171 13.401 14.8748C13.3073 14.7274 13.2404 14.4863 13.4278 14.3126L13.9501 13.7497C14.553 13.1206 14.6867 12.6383 14.1244 11.848L12.477 9.5177C11.9141 8.72742 11.0976 8.87485 10.1998 9.54456C10.133 9.59827 10.0798 9.65199 10.0261 9.70513C7.66899 12.0623 9.66442 16.04 12.785 19.1606"
+                        fill="#CF4BEF"
+                      />
+                    </svg>
+                  </div>
+
+                  <div>
+                    <p class=" font-display text-display-sm font-medium mb-5">
+                      {link.label}
+                    </p>
+                    <a
+                      href={link.link}
+                      class=" text-dark-blue text-body-base font-bold"
+                    >
+                      {link.linkText}
+                    </a>
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+      <div
+        class="bg-white w-full max-w-[496px] px-8 py-10 h-[700px] rounded-2xl"
+      >
       </div>
     </Container>
   </section>

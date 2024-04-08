@@ -1,14 +1,40 @@
 ---
 import PortableText from "../components/PortableText.astro";
+import Container from "../components/Container.astro";
 import Layout from "../layouts/Layout.astro";
+import CTA from "../sections/CTA.astro";
 import { getBecomeTrainer } from "../utils/sanity";
+import cloudTrainerRightImg from "../assets/cloudTrainerRightImg.svg";
+import cloudTrainerLeftImg from "../assets/cloudTrainerLeftImg.svg";
+import { Image } from "astro:assets";
 
 const pageContent = await getBecomeTrainer();
 console.log(pageContent);
 ---
 
 <Layout title="Become a Cloud Trainer">
-  <article class="prose prose-lg">
-    <PortableText content={pageContent.pageContent} />
-  </article>
+  <div class="py-24 text-center bg-purple relative">
+    <Image
+      src={cloudTrainerRightImg}
+      alt=""
+      class="absolute top-9 right-14 hidden lg:block object-cover"
+    />
+    <Image
+      src={cloudTrainerLeftImg}
+      alt=""
+      class="absolute top-9 left-14 hidden lg:block object-cover"
+    />
+    <h1 class="text-white">{pageContent.title}</h1>
+  </div>
+  <section class="py-16">
+    <Container classes=" flex flex-col lg:flex-row gap-14 justify-between ">
+      <article class="prose prose-lg lg:w-1/2">
+        <PortableText content={pageContent.pageContent} />
+      </article><div
+        class="bg-offwhite w-full max-w-[496px] px-8 py-10 h-[700px] rounded-2xl"
+      >
+      </div></Container
+    >
+  </section>
+  <CTA content={pageContent.cta} />
 </Layout>
