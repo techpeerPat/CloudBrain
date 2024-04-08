@@ -1,7 +1,14 @@
 ---
+import PortableText from "../components/PortableText.astro";
 import Layout from "../layouts/Layout.astro";
+import { getBecomeTrainer } from "../utils/sanity";
+
+const pageContent = await getBecomeTrainer();
+console.log(pageContent);
 ---
 
 <Layout title="Become a Cloud Trainer">
-  <h1>Become a Cloud Trainer</h1>
+  <article class="prose prose-lg">
+    <PortableText content={pageContent.pageContent} />
+  </article>
 </Layout>
