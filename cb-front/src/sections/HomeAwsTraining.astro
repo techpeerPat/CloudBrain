@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import Container from "../components/Container.astro";
 import { urlFor } from "../utils/image";
+import Button from "../components/Button.astro";
 
 const { content } = Astro.props;
 ---
@@ -52,6 +53,20 @@ const { content } = Astro.props;
           ))
         }
       </ul>
+      <div class="flex flex-col sm:flex-row gap-4 w-full">
+        {
+          content.buttons &&
+            content.buttons.map((button) => (
+              <Button
+                type={button.type}
+                variant={button.version}
+                href={button.buttonLink}
+              >
+                {button.buttonText}
+              </Button>
+            ))
+        }
+      </div>
     </div>
   </Container>
 </section>
