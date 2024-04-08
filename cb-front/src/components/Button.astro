@@ -1,0 +1,36 @@
+---
+const { href, variant, target = "_self", type } = Astro.props;
+const variants = {
+  primary:
+    "group bg-dark-blue text-white w-full sm:w-44 rounded-xl flex items-center overflow-hidden relative p-1 pl-4 h-12 shadow-btn",
+  secondary:
+    " bg-white text-black px-5 py-3 border border-purple rounded-lg w-full sm:w-fit",
+};
+---
+
+<a
+  class=` ${variants[variant]}   font-display  font-medium  cursor-pointer  text-display-btn tracking-wide `
+  href={href}
+  target={target}
+  type={type}
+  ><slot />
+  {
+    variant === "primary" && (
+      <div class="bg-white ml-4 absolute flex items-center justify-center right-1 w-10 h-10 rounded-[10px] group-hover:w-[95%] group-active:scale-95 transition-all duration-300">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="13"
+          height="16"
+          viewBox="0 0 13 16"
+          fill="none"
+          class="group-hover:translateX-1 transition-transform duration-300"
+        >
+          <path
+            d="M12.2071 8.70711C12.5976 8.31658 12.5976 7.68342 12.2071 7.29289L5.84315 0.928932C5.45262 0.538408 4.81946 0.538408 4.42893 0.928932C4.03841 1.31946 4.03841 1.95262 4.42893 2.34315L10.0858 8L4.42893 13.6569C4.03841 14.0474 4.03841 14.6805 4.42893 15.0711C4.81946 15.4616 5.45262 15.4616 5.84315 15.0711L12.2071 8.70711ZM0.5 9H11.5V7H0.5V9Z"
+            fill="#008eef"
+          />
+        </svg>
+      </div>
+    )
+  }</a
+>

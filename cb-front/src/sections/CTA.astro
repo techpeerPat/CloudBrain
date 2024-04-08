@@ -2,8 +2,10 @@
 import { Image } from "astro:assets";
 import Container from "../components/Container.astro";
 import { urlFor } from "../utils/image";
+import Button from "../components/Button.astro";
 
 const { content } = Astro.props;
+console.log(content);
 ---
 
 <section class="pt-24 relative pb-28 text-white">
@@ -22,11 +24,17 @@ const { content } = Astro.props;
     <div
       class="relative flex flex-col justify-center items-center w-full bg-black/50 backdrop-blur rounded-t-2xl max-w-3xl p-16 pb-20 text-center"
     >
-      <h2 class="text-display-2xl">{content.title}</h2>
-      {content.description && <p>{content.description}</p>}
+      <h2 class="text-display-2xl mb-4">{content.title}</h2>
+      {content.description && <p class=" mb-4">{content.description}</p>}
       {
         content.button && (
-          <a href={content.button.buttonLink}>{content.button.buttonText}</a>
+          <Button
+            type={content.button.type}
+            variant={content.button.version}
+            href={content.button.buttonLink}
+          >
+            {content.button.buttonText}
+          </Button>
         )
       }
       <svg
