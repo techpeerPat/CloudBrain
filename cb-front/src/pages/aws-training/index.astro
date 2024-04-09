@@ -7,9 +7,13 @@ import { Image } from "astro:assets";
 import Container from "../../components/Container.astro";
 import ctaBg from "../../assets/ctaBg.png";
 import Button from "../../components/Button.astro";
+import { TabsAws } from "../../components/Tabs.jsx";
+import { getAwsCategories } from "../../utils/sanity";
 
 const pageContent = await getAwsTrainings();
-console.log(pageContent);
+const categories = await getAwsCategories();
+
+const url = "/aws-training/";
 ---
 
 <Layout title="AWS Training">
