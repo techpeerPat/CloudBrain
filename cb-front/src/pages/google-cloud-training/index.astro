@@ -8,12 +8,14 @@ import Button from "../../components/Button.astro";
 
 import { Image } from "astro:assets";
 import { getGoogleTrainings } from "../../utils/sanity";
+import { getGoogleCategories } from "../../utils/sanity";
 import Container from "../../components/Container.astro";
 
 const pageContent = await getGoogleTrainings();
+const categories = await getGoogleCategories();
+console.log(pageContent);
 
 const url = "/google-cloud-training/";
-console.log(pageContent);
 ---
 
 <Layout title="Google Cloud Training">
@@ -33,7 +35,7 @@ console.log(pageContent);
   </div>
   <section class="py-16">
     <Container>
-      <!-- <TabsDemo client:load content={pageContent.pageContent} /> -->
+      <TabsDemo client:load categories={categories} content={pageContent} />
     </Container>
   </section>
   <section class="pt-24 relative pb-28 text-white">
