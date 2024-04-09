@@ -19,6 +19,12 @@ export async function getGoogleCategories() {
   );
 }
 
+export async function getAwsCategories() {
+  return await sanityClient.fetch(
+    groq`*[_type == "awsCategory" ] | order(_createdAt asc)`
+  );
+}
+
 export async function getGoogleTrainings() {
   return await sanityClient.fetch(
     groq`*[_type == "googleCloudTraining" && defined(slug.current)] | order(_createdAt desc){
@@ -45,13 +51,21 @@ export async function getGoogleTraining(slug) {
 
 export async function getAwsTrainings() {
   return await sanityClient.fetch(
-    groq`*[_type == "awsTraining" && defined(slug.current)] | order(_createdAt desc)`
+    groq`*[_type == "awsTraining" && defined(slug.current)] | order(_createdAt desc{
+      ...,
+      category[]-> { // Follow the reference to each referenced document in the array
+        title // Fetch the title field of each referenced document
+      }}`
   );
 }
 
 export async function getAwsTraining(slug) {
   return await sanityClient.fetch(
-    groq`*[_type == "awsTraining" && slug.current == $slug ][0]`,
+    groq`*[_type == "awsTraining" && slug.current == $slug ][0]{
+      ...,
+      category[]-> { // Follow the reference to each referenced document in the array
+        title // Fetch the title field of each referenced document
+      }}`,
     {
       slug,
     }

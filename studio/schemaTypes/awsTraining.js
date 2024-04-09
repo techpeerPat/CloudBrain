@@ -29,15 +29,7 @@ export default defineType({
       name: 'category',
       title: 'Category',
       type: 'array',
-      of: [{type: 'string'}],
-      options: {
-        list: [
-          {title: 'Foundations', value: 'foundations'},
-          {title: 'Architect', value: 'architect'},
-          {title: 'Containers', value: 'containers'},
-        ],
-      },
-      validation: (rule) => rule.required(),
+      of: [{type: 'reference', to: [{type: 'awsCategory'}]}],
     }),
 
     defineField({

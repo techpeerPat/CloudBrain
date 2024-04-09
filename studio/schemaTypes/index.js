@@ -8,6 +8,7 @@ import socialLink from './socialLink'
 import becomeTrainer from './becomeTrainer'
 import googleCloudTraining from './googleCloudTraining'
 import awsTraining from './awsTraining'
+import awsCategory from './awsCategory'
 
 export const schemaTypes = [
   home,
@@ -16,6 +17,7 @@ export const schemaTypes = [
   becomeTrainer,
   googleCloudTraining,
   awsTraining,
+  awsCategory,
   cta,
   socialLink,
   googleCategory,
