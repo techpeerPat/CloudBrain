@@ -1,0 +1,32 @@
+---
+import type { InferGetStaticParamsType } from "astro";
+import Layout from "../../layouts/Layout.astro";
+import { getAwsTraining } from "../../utils/sanity";
+import { getAwsTrainings } from "../../utils/sanity";
+import PortableText from "../../components/PortableText.astro";
+import Container from "../../components/Container.astro";
+
+export async function getStaticPaths() {
+  const pages = await getAwsTrainings();
+  return pages.map((page) => ({
+    params: { slug: page.slug.current },
+  }));
+}
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+
+const { slug } = Astro.params as Params;
+
+const page = await getAwsTraining(slug);
+export const prerender = true;
+---
+
+<Layout title={page.title}
+  ><section class="py-16">
+    <Container
+      ><article class="prose prose-lg w-full">
+        <PortableText content={page.pageContent} />
+      </article></Container
+    >
+  </section></Layout
+>

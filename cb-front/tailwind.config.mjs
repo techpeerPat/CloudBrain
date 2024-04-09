@@ -30,6 +30,7 @@ export default {
         purple: "#CF4BEF",
         "light-gray": "#B4B8BD",
         "dark-blue": "#008EEF",
+        "dark-green": "#00AB7E",
         offwhite: "#F9FAFB",
       },
       listStyleImage: {
