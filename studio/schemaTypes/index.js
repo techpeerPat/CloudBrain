@@ -1,5 +1,5 @@
 import blockContent from './blockContent'
-import category from './category'
+import googleCategory from './googleCategory'
 import button from './button'
 import cta from './cta'
 import home from './home'
@@ -18,6 +18,6 @@ export const schemaTypes = [
   awsTraining,
   cta,
   socialLink,
-  category,
+  googleCategory,
   blockContent,
 ]

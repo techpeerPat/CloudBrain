@@ -30,15 +30,7 @@ export default defineType({
       name: 'category',
       title: 'Category',
       type: 'array',
-      of: [{type: 'string'}],
-      options: {
-        list: [
-          {title: 'Foundations', value: 'foundations'},
-          {title: 'Cloud Infrastructure', value: 'cloudInfrastructure'},
-          {title: 'Google Cloud and Generative AI', value: 'googleCloudAndGenerativeAI'},
-        ],
-      },
-      validation: (rule) => rule.required(),
+      of: [{type: 'reference', to: [{type: 'googleCategory'}]}],
     }),
     defineField({
       name: 'length',

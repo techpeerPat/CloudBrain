@@ -13,15 +13,30 @@ export async function getBecomeTrainer() {
   return await sanityClient.fetch(groq`*[_type == "becomeTrainer" ][0]`);
 }
 
+export async function getGoogleCategories() {
+  return await sanityClient.fetch(
+    groq`*[_type == "googleCategory" ] | order(_createdAt asc)`
+  );
+}
+
 export async function getGoogleTrainings() {
   return await sanityClient.fetch(
-    groq`*[_type == "googleCloudTraining" && defined(slug.current)] | order(_createdAt desc)`
+    groq`*[_type == "googleCloudTraining" && defined(slug.current)] | order(_createdAt desc){
+      ...,
+      category[]-> { // Follow the reference to each referenced document in the array
+        title // Fetch the title field of each referenced document
+      }}`
   );
 }
 
 export async function getGoogleTraining(slug) {
   return await sanityClient.fetch(
-    groq`*[_type == "googleCloudTraining" && slug.current == $slug ][0]`,
+    groq`*[_type == "googleCloudTraining" && slug.current == $slug ][0]{
+      ...,
+      category[]-> { // Follow the reference to each referenced document in the array
+        title // Fetch the title field of each referenced document
+      }
+    }`,
     {
       slug,
     }
