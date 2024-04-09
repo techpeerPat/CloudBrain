@@ -1,11 +1,80 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import cloudTrainerRightImg from "../../assets/cloudTrainerRightImg.svg";
+import cloudTrainerLeftImg from "../../assets/cloudTrainerLeftImg.svg";
+import TabsDemo from "../../components/Tabs.jsx";
+import ctaBg from "../../assets/ctaBg.png";
+import Button from "../../components/Button.astro";
+
+import { Image } from "astro:assets";
 import { getGoogleTrainings } from "../../utils/sanity";
+import Container from "../../components/Container.astro";
 
 const pageContent = await getGoogleTrainings();
+
+const url = "/google-cloud-training/";
 console.log(pageContent);
 ---
 
 <Layout title="Google Cloud Training">
-  <h1>Google Cloud Training</h1>
+  <div class="py-24 text-center bg-dark-blue relative">
+    <h1 class="text-white">Google Cloud Training</h1>
+
+    <Image
+      src={cloudTrainerRightImg}
+      alt=""
+      class="absolute top-9 right-14 hidden lg:block object-cover"
+    />
+    <Image
+      src={cloudTrainerLeftImg}
+      alt=""
+      class="absolute top-9 left-14 hidden lg:block object-cover"
+    />
+  </div>
+  <section class="py-16">
+    <Container>
+      <!-- <TabsDemo client:load content={pageContent.pageContent} /> -->
+    </Container>
+  </section>
+  <section class="pt-24 relative pb-28 text-white">
+    <Image
+      class="absolute top-0 left-0 object-cover w-full h-full"
+      src={ctaBg}
+      alt="background"
+    />
+
+    <Container classes="relative z-10 flex justify-center items-center">
+      <div
+        class="relative flex flex-col justify-center items-center w-full bg-black/50 backdrop-blur rounded-t-2xl max-w-3xl p-16 pb-20 text-center"
+      >
+        <h2 class="text-display-2xl mb-4">Become a Cloud Trainer</h2>
+        <p class="mb-4">Help shape the future of business</p>
+
+        <Button type="button" variant="secondary" href="/become-cloud-trainer">
+          Become a Trainer
+        </Button>
+
+        <svg
+          width="768"
+          height="16"
+          viewBox="0 0 768 16"
+          fill="none"
+          class="absolute -bottom-2 sm:bottom-0 left-0 w-full h-4"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="153.6" height="16" fill="#CF4BEF"></rect>
+          <rect x="153.6" width="153.6" height="16" fill="#02BEF7"></rect>
+          <rect x="307.2" width="153.6" height="16" fill="#00C29C"></rect>
+          <rect x="460.8" width="153.6" height="16" fill="#F7BA22"></rect>
+          <rect x="614.4" width="153.6" height="16" fill="#F60F40"></rect>
+          <rect
+            x="538.065"
+            width="153.846"
+            height="16"
+            fill="white"
+            fill-opacity="0.5"></rect>
+        </svg>
+      </div>
+    </Container>
+  </section>
 </Layout>
