@@ -27,7 +27,7 @@ export async function getAwsCategories() {
 
 export async function getGoogleTrainings() {
   return await sanityClient.fetch(
-    groq`*[_type == "googleCloudTraining" && defined(slug.current)] | order(_createdAt desc){
+    groq`*[_type == "googleCloudTraining" && defined(slug.current)] | order(_createdAt asc){
       ...,
       category[]-> { // Follow the reference to each referenced document in the array
         title // Fetch the title field of each referenced document
