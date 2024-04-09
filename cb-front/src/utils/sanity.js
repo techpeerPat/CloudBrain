@@ -1,3 +1,5 @@
+/** @format */
+
 import { sanityClient } from "sanity:client";
 import groq from "groq";
 
