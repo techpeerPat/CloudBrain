@@ -39,9 +39,9 @@ const TabsDemo = ({ categories, content }) => (
       ))}
 
 {content.map((item) => (
-  item.category.map((cat) => (
+  item.category.map((multiple) => (
     <Tabs.Content
-      value={cat.title}
+      value={multiple.title}
       className="grow p-5 bg-white rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-black"
     >
       <div>
