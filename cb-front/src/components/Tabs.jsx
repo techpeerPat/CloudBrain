@@ -38,16 +38,18 @@ const TabsDemo = ({ categories, content }) => (
         </Tabs.Content>
       ))}
 
-      {content.map((item) => (
-        <Tabs.Content
-          value="Foundations"
-          className="grow p-5 bg-white rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-black"
-        >
-          <div>
-            <p>{item.title}</p>
-          </div>
-        </Tabs.Content>
-      ))}
+{content.map((item) => (
+  item.category.map((cat) => (
+    <Tabs.Content
+      value={cat.title}
+      className="grow p-5 bg-white rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-black"
+    >
+      <div>
+        <p>{item.title}</p>
+      </div>
+    </Tabs.Content>
+  ))
+))}
     </Tabs.Root>
   )
 );
