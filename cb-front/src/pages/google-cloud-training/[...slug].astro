@@ -23,8 +23,10 @@ export const prerender = true;
 
 <Layout title={page.title}
   ><section class="py-16">
-    <Container
-      ><article class="prose prose-lg w-full">
+    <Container classes="max-w-[702px]">
+      <h1 class="mb-6 text-display-2xl">{page.title}</h1>
+      {page.length && <span class="mb-4 block">({page.length})</span>}
+      <article class="prose prose-lg">
         <PortableText content={page.pageContent} />
       </article></Container
     >
