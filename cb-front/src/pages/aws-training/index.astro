@@ -12,6 +12,7 @@ import { getAwsCategories } from "../../utils/sanity";
 
 const pageContent = await getAwsTrainings();
 const categories = await getAwsCategories();
+console.log(pageContent[0]);
 
 const url = "/aws-training/";
 ---
@@ -31,7 +32,16 @@ const url = "/aws-training/";
       class="absolute top-9 left-14 hidden lg:block object-cover"
     />
   </div>
-  <section class="py-16"><Container /></section>
+  <section class="py-16">
+    <Container
+      ><TabsAws
+        client:load
+        categories={categories}
+        content={pageContent}
+        url={url}
+      /></Container
+    >
+  </section>
   <section class="pt-24 relative pb-28 text-white">
     <Image
       class="absolute top-0 left-0 object-cover w-full h-full"
