@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import cloudTrainerRightImg from "../../assets/cloudTrainerRightImg.svg";
 import cloudTrainerLeftImg from "../../assets/cloudTrainerLeftImg.svg";
-import TabsDemo from "../../components/Tabs.jsx";
+import { TabsGoogle } from "../../components/Tabs.jsx";
 import ctaBg from "../../assets/ctaBg.png";
 import Button from "../../components/Button.astro";
 
@@ -13,7 +13,7 @@ import Container from "../../components/Container.astro";
 
 const pageContent = await getGoogleTrainings();
 const categories = await getGoogleCategories();
-console.log(pageContent);
+console.log(pageContent[0]);
 
 const url = "/google-cloud-training/";
 ---
@@ -35,7 +35,12 @@ const url = "/google-cloud-training/";
   </div>
   <section class="py-16">
     <Container>
-      <TabsDemo client:load categories={categories} content={pageContent} />
+      <TabsGoogle
+        client:load
+        categories={categories}
+        content={pageContent}
+        url={url}
+      />
     </Container>
   </section>
   <section class="pt-24 relative pb-28 text-white">
