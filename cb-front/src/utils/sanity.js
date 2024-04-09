@@ -51,7 +51,7 @@ export async function getGoogleTraining(slug) {
 
 export async function getAwsTrainings() {
   return await sanityClient.fetch(
-    groq`*[_type == "awsTraining" && defined(slug.current)] | order(_createdAt desc{
+    groq`*[_type == "awsTraining" && defined(slug.current)] | order(_createdAt desc){
       ...,
       category[]-> { // Follow the reference to each referenced document in the array
         title // Fetch the title field of each referenced document
